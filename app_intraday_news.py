@@ -403,12 +403,17 @@ for pair in pairs:
 
     st.markdown("---")
     
-# Auto-refresh (Streamlit Cloud safe)
-import streamlit as st
-
-st_autorefresh = st.experimental_memo.clear  # Just a hack to keep older versions safe
-
+# ---- Auto-refresh (version-safe) ----
+import time as _t
+# Sleep for the chosen refresh seconds, then rerun.
+_t.sleep(refresh)
 try:
-    st.rerun()   # New versions
-except:
-    st.experimental_rerun()  # Fallback for older versions
+    # Streamlit >= 1.27
+    st.rerun()
+except Exception:
+    # Older Streamlit
+    try:
+        st.experimental_rerun()
+    except Exception:
+        pass  # As a last resort, do nothing
+
