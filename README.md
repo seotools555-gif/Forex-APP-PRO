@@ -71,26 +71,4 @@ Visit **http://localhost:8501** in your browser.
 
 ---
 
-## 🌐 Deploy to Streamlit Cloud
 
-1. Push this project to **GitHub**  
-2. Go to [Streamlit Cloud](https://share.streamlit.io/) → **New App**  
-3. Connect your repo & branch  
-4. Select `app_realtime_asi_fileio.py` as the main file  
-5. Add **Secrets** (optional):  
-   - `NEWSAPI_KEY = "your_api_key_here"`  
-   - `ACCOUNT_BALANCE = 100000`  
-
-Streamlit Cloud will auto-install from `requirements.txt`.
-
----
-
-## 🔑 API Keys
-- **NewsAPI** (optional): [Get a free key here](https://newsapi.org/register)  
-- If not set, the app uses **RSS feeds** as fallback.
-
----
-
-## ⚠️ Disclaimer
-This dashboard is for **educational purposes only**.  
-It is **not financial advice**. Use at your own risk.
