@@ -402,7 +402,13 @@ for pair in pairs:
                 st.write(f"- ({h.get('score'):+.3f}) {h.get('title')} — {h.get('source','')}")
 
     st.markdown("---")
+    
+# Auto-refresh (Streamlit Cloud safe)
+import streamlit as st
 
-# Auto-refresh
-time.sleep(refresh)
-st.experimental_rerun()
+st_autorefresh = st.experimental_memo.clear  # Just a hack to keep older versions safe
+
+try:
+    st.rerun()   # New versions
+except:
+    st.experimental_rerun()  # Fallback for older versions
